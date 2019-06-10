@@ -3,16 +3,37 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:o="http://omnifaces.org/ui"
+      >
 
     <h:head>
         <title>PrimeFaces Test</title>
     </h:head>
     <h:body>
+      <h:form>
+        <p:pickList id="pcsPickList"
+                 value="#{testView.pojoSelection}"
+                   var="pcs"
+             itemValue="#{pcs}"
+             itemLabel="#{pcs.id} : #{pcs.name}"
+            responsive="true"
+      showSourceFilter="true"
+      showTargetFilter="true"
+       filterMatchMode="contains"
+          showCheckbox="false"
+          labelDisplay="inline"
+                 style="min-width: 1106px;">
+            <f:facet name="sourceCaption">Available pojos</f:facet>
+            <f:facet name="targetCaption">Assigned pojos</f:facet>
+            <o:converter converterId="omnifaces.ListConverter" list="#{testView.pojoList}" />
 
-        <h1>#{testView.testString}</h1>
+            <p:column style="white-space: nowrap;">
+                <h:outputText value="#{pcs.id} : #{pcs.name}"/>
+            </p:column>
+            <p:ajax event="select" listener="#{testView.selectPojoListener}"/>
+        </p:pickList>
 
-        <h1>#{testViewCdi.testString}</h1>
-
+      </h:form>
     </h:body>
 </html>
