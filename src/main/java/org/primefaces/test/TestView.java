@@ -24,4 +24,7 @@ public class TestView implements Serializable {
         string = "Welcome to PrimeFaces!!!";
     }
 
+    public void handleEvent() {
+        string = string.toUpperCase();
+    }
 }

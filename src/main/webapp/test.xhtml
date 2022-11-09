@@ -17,6 +17,10 @@
         <h1>#{testView.string}</h1>
         <h:form id="frmTest">
             
+			<p:inputMask value="#{testView.string}">
+				<p:ajax listener="#{testView.handleEvent}" update="@form"/>
+			</p:inputMask>
+
         </h:form>
 
     </h:body>
