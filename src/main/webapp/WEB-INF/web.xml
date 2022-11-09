@@ -24,9 +24,11 @@
         <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
     </context-param>
 
+<!-- 
     <listener>
         <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
     </listener>
+ -->
     <listener>
         <listener-class>${jsf-listener}</listener-class>
     </listener>
